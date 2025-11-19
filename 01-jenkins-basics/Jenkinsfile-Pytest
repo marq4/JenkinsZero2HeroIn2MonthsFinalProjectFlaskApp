@@ -24,8 +24,11 @@ pipeline {
       steps {
         dir('01-jenkins-basics') {
           sh '''
+            echo 'Create Python virtual environment. '
             python -m venv venv
+            echo 'Upgrade pip module. '
             ./venv/bin/python -m pip install --upgrade pip
+            echo 'Install project dependencies. '
             ./venv/bin/python -m pip install -r requirements.txt
           '''
         }
