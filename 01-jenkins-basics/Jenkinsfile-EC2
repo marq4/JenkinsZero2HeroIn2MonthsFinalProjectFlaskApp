@@ -80,7 +80,7 @@ pipeline {
                   "rm -f ${HOME}/${APP_ZIP} && \
                   unzip -o ${HOME}/${APP_ZIP} -d ${HOME}/${APP_FOLDER}/ && \
                   chmod u+x ${HOME}/${APP_FOLDER}/${DEPLOY_SCRIPT} && \
-                  ./${HOME}/${APP_FOLDER}/${DEPLOY_SCRIPT}" '
+                  ${HOME}/${APP_FOLDER}/${DEPLOY_SCRIPT}" '
             """
           }
         }
