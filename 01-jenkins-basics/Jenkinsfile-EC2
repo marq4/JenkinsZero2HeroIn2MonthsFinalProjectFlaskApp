@@ -52,7 +52,7 @@ pipeline {
       steps {
         dir('01-jenkins-basics') {
           sh """
-            zip -r ${APP_ZIP} ./* -x '*.git*'
+            zip -r ${APP_ZIP} app.py requirements.txt deploy.sh templates/
             ls -ltra
           """
         }
@@ -73,7 +73,7 @@ pipeline {
                 ${user}@${EC2_SERVER}:/home/ec2-user/
               ssh -i ${SSH_KEY} -o StrictHostKeyChecking=no \
                 ${user}@${EC2_SERVER} \
-                /home/ec2-user/deploy.sh ${APP_ZIP}
+                /home/ec2-user/App/deploy.sh ${APP_ZIP}
             """
           }
         }
