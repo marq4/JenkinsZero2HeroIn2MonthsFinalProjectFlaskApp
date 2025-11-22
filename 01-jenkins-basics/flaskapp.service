@@ -7,7 +7,7 @@
 # Unit: a resource that systemd knows how to manage & control.
 # The fundamental building block of the systemd init system.
 [Unit]
-Description="Flask App."
+Description=Flask Web Application
 # Since this is a web app, start it after the network has been initialized:
 After=network.target
 
@@ -26,5 +26,5 @@ ExecStart=/home/ec2-user/App/venv/bin/python3 /home/ec2-user/App/app.py
 # The target our service should be started under.
 # Target: unit that groups other units to represent a checkpoint in the boot process.
 # Multi-user: standard target for running multiple users in a non-graphical env,
-# common for most servers.
+#   common for most servers.
 WantedBy=multi-user.target

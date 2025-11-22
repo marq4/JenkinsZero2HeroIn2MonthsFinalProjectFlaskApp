@@ -80,8 +80,8 @@ pipeline {
                 ${user}@${EC2_SERVER} ' bash -c \
                   "unzip -o ${EC2_HOME}/${APP_ZIP} -d ${EC2_HOME}/${APP_FOLDER}/ && \
                   chmod u+x ${EC2_HOME}/${APP_FOLDER}/${DEPLOY_SCRIPT} && \
-                  ${EC2_HOME}/${APP_FOLDER}/${DEPLOY_SCRIPT}" && \
-                  rm -f ${EC2_HOME}/${APP_ZIP} '
+                  ${EC2_HOME}/${APP_FOLDER}/${DEPLOY_SCRIPT} && \
+                  rm -f ${EC2_HOME}/${APP_ZIP}" '
             """
           }
           echo "To see the app running visit: http://${EC2_SERVER}:${PORT}"
