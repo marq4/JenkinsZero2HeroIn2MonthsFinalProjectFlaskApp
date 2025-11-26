@@ -36,6 +36,7 @@ pipeline {
     stage('Setup') {
       steps {
         sh '''
+          cd marq4/
           export PATH="/root/.local/bin:$PATH"
           poetry install --with dev
         '''
@@ -47,10 +48,10 @@ pipeline {
       when { expression { return env.GIT_TAG == '' } }
       steps {
         // Get next version numbers:
-        def tag = sh(script: 'export PATH="/root/.local/bin:$PATH" && poetry run semantic-release version', returnStdout: true).trim()
+        def tag = sh(script: 'cd marq4/ && export PATH="/root/.local/bin:$PATH" && poetry run semantic-release version', returnStdout: true).trim()
         echo "New Tag => ${tag}. "
         // Create new commit in GitHub with Tag & Release:
-        sh ' export PATH="/root/.local/bin:$PATH" && poetry run semantic-release publish '
+        sh 'cd marq4/ && export PATH="/root/.local/bin:$PATH" && poetry run semantic-release publish'
       }
     }
 

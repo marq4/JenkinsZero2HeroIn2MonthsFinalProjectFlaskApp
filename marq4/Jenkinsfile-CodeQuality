@@ -14,6 +14,7 @@ pipeline {
     stage('Setup') {
       steps {
         sh '''
+          cd marq4/
           export PATH="/root/.local/bin:$PATH"
           poetry install --with dev
         '''
@@ -23,6 +24,7 @@ pipeline {
     stage('Unit testing') {
       steps {
         sh '''
+          cd marq4/
           export PATH="/root/.local/bin:$PATH"
           poetry run pytest -vvv
         '''
