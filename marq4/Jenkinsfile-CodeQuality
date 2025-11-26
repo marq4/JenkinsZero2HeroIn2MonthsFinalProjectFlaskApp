@@ -1,0 +1,26 @@
+// Declarative.
+pipeline {
+  agent any
+  stages {
+    stage('Display PR #') {
+      when {
+        changeRequest( target: 'main' )
+      }
+      steps {
+        echo "PR: ${CHANGE_ID}. CHANGE_BRANCH=>${CHANGE_BRANCH}. CHANGE_TARGET=>${CHANGE_TARGET}. "
+      }
+    }
+
+    stage('Setup') {
+      steps {
+        sh ' poetry install --with dev '
+      }
+    }
+
+    stage('Unit testing') {
+      steps {
+        sh ' poetry run pytest -vvv '
+      }
+    }
+  }
+}
