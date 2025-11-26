@@ -13,13 +13,19 @@ pipeline {
 
     stage('Setup') {
       steps {
-        sh ' poetry install --with dev '
+        sh '''
+          export PATH="/root/.local/bin:$PATH"
+          poetry install --with dev
+        '''
       }
     }
 
     stage('Unit testing') {
       steps {
-        sh ' poetry run pytest -vvv '
+        sh '''
+          export PATH="/root/.local/bin:$PATH"
+          poetry run pytest -vvv
+        '''
       }
     }
   }

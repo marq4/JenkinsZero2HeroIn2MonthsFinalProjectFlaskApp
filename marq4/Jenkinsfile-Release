@@ -12,6 +12,12 @@ pipeline {
   }
 
   stages {
+    stage('Install Poetry') {
+      steps {
+        sh ' curl -sSL https://install.python-poetry.org | python3 - '
+      }
+    }
+
     stage('Check for Git Tag') {
       steps {
         script {
@@ -29,7 +35,10 @@ pipeline {
 
     stage('Setup') {
       steps {
-        sh ' poetry install --with dev '
+        sh '''
+          export PATH="/root/.local/bin:$PATH"
+          poetry install --with dev
+        '''
       }
     }
 
@@ -38,10 +47,10 @@ pipeline {
       when { expression { return env.GIT_TAG == '' } }
       steps {
         // Get next version numbers:
-        def tag = sh(script: 'poetry run semantic-release version', returnStdout: true).trim()
+        def tag = sh(script: 'export PATH="/root/.local/bin:$PATH" && poetry run semantic-release version', returnStdout: true).trim()
         echo "New Tag => ${tag}. "
         // Create new commit in GitHub with Tag & Release:
-        sh ' poetry run semantic-release publish '
+        sh ' export PATH="/root/.local/bin:$PATH" && poetry run semantic-release publish '
       }
     }
 
