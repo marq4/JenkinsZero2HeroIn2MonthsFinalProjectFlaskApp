@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.2.0 (2025-11-27)
+
+### Features
+
+- Arbitrary change to test pipelines again.
+  ([`826e8dd`](https://github.com/marq4/JenkinsZero2HeroIn2MonthsFinalProjectFlaskApp/commit/826e8dd97aa79452fed8b6927ad16e908b237ff7))
+
+
 ## v0.1.0 (2025-11-27)
 
 ### Bug Fixes
