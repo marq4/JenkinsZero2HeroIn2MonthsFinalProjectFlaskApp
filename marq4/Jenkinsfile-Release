@@ -62,7 +62,7 @@ pipeline {
               usernameVariable: 'USER', passwordVariable: 'TOKEN')])
             {
               sh """
-                docker build -t ${IMAGE_TAG} -t ${IMAGE_TAG_RELEASE} .
+                docker build -t ${IMAGE_TAG} -t ${IMAGE_TAG_RELEASE} marq4/
                 docker push --all-tags ${IMAGE_NAME}
               """
             }
