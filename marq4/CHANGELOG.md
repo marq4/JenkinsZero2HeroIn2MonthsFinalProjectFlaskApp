@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.2.1 (2025-11-27)
+
+### Bug Fixes
+
+- Forgot to copy Dockerfile over to my subfolder. Also installed Pip in the Agent.
+  ([`eb52d96`](https://github.com/marq4/JenkinsZero2HeroIn2MonthsFinalProjectFlaskApp/commit/eb52d960241ff951cf347b015bf2bea0099832e8))
+
+
 ## v0.2.0 (2025-11-27)
 
 ### Features
