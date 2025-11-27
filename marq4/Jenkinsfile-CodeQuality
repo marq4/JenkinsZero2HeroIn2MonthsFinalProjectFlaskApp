@@ -2,6 +2,16 @@
 pipeline {
   agent any
   stages {
+    stage('Verify tools') {
+      steps {
+        sh '''
+          python --version
+          poetry --version
+          docker version
+        '''
+      }
+    }
+
     stage('Display PR #') {
       when {
         changeRequest( target: 'main' )
@@ -13,21 +23,17 @@ pipeline {
 
     stage('Setup') {
       steps {
-        sh '''
-          cd marq4/
-          export PATH="/root/.local/bin:$PATH"
-          poetry install --with dev
-        '''
+        dir('marq4') {
+          sh ' poetry install --with dev '
+        }
       }
     }
 
     stage('Unit testing') {
       steps {
-        sh '''
-          cd marq4/
-          export PATH="/root/.local/bin:$PATH"
-          poetry run pytest -vvv
-        '''
+        dir('marq4') {
+          sh ' poetry run pytest -vvv '
+        }
       }
     }
   }
