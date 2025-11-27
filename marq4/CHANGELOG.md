@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.2.3 (2025-11-27)
+
+### Bug Fixes
+
+- Forgot to copy the requirements file over to my subfolder.
+  ([`1de2059`](https://github.com/marq4/JenkinsZero2HeroIn2MonthsFinalProjectFlaskApp/commit/1de205931b013c9b9a22d651f481de022ec476f2))
+
+
 ## v0.2.2 (2025-11-27)
 
 ### Bug Fixes
