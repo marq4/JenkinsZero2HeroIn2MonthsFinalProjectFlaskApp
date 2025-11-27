@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.2.4 (2025-11-27)
+
+### Bug Fixes
+
+- Added Docker login.
+  ([`bb98840`](https://github.com/marq4/JenkinsZero2HeroIn2MonthsFinalProjectFlaskApp/commit/bb988401199a20373e1e0c456cec74cbacb1ba69))
+
+
 ## v0.2.3 (2025-11-27)
 
 ### Bug Fixes
