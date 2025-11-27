@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.2.2 (2025-11-27)
+
+### Bug Fixes
+
+- Fixed Dockerfile location.
+  ([`eb82139`](https://github.com/marq4/JenkinsZero2HeroIn2MonthsFinalProjectFlaskApp/commit/eb82139cdf7a7d9f4d3116d0f2c2ffbc26232eb7))
+
+
 ## v0.2.1 (2025-11-27)
 
 ### Bug Fixes
